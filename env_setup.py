@@ -11,4 +11,4 @@ def add_to_env(length):
         letter_connect = ''.join(random.choice(all_letters) for i in range(length))
         key = hashlib.sha224(letter_connect[2::].encode("utf-8"))
         file.write(f'SECRET_KEY={key.hexdigest()}\nDATABASE_URL={database_url}'.replace('\n', '\n'))
-        
+        file.truncate()
