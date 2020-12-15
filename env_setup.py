@@ -9,3 +9,4 @@ def add_to_env(length):
         file.seek(0)
         all_letters = string.ascii_lowercase
         letter_connect = ''.join(random.choice(all_letters) for i in range(length))
+        key = hashlib.sha224(letter_connect[2::].encode("utf-8"))
