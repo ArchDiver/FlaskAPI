@@ -1,4 +1,4 @@
-envFlaskAPI
+flask_api_env
 .vscode/
 .env
 __pycache__
