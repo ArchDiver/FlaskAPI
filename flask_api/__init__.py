@@ -11,3 +11,7 @@ app.config.from_object(Config)
 
 db = SQLAlchemy(app)
 mirgrate = Migrate(app, db)
+ma = Marshmellow(app)
+
+login_manager = LoginManager(app)
+
