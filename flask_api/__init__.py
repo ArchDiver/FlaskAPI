@@ -15,3 +15,4 @@ ma = Marshmellow(app)
 
 login_manager = LoginManager(app)
 
+from flask_api import models, routes
