@@ -62,3 +62,24 @@ def delete_patients(id):
     db.session.commit()
     result = patient_schema.dumps(patient)
     return jsonify(result)
+
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+
+#   #route to the register page
+@route('/users/register', methods = ['GET', 'POST'])
+def register():
+    from = UserForm()
+    if request.method == 'POST' and form.validate():
+        name = form.name.data
+        email = form.email.data
+        user = User(name, email, password)
+
+        db.session.add(user)
+        db.session.commit(user)
+
+        return redirect(url_for('login'))
+    return render_template('request.html', form = form)
+    
