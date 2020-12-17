@@ -68,7 +68,7 @@ def home():
     return render_template('home.html')
 
 
-#   #route to the register page
+#   # route to the REGISTER page
 @route('/users/register', methods = ['GET', 'POST'])
 def register():
     from = UserForm()
@@ -82,4 +82,16 @@ def register():
 
         return redirect(url_for('login'))
     return render_template('request.html', form = form)
-    
+
+#   # route to the LOGIN page
+@app.route('/users/login', methods = ['GET', 'POST'])
+def login():
+    form = LoginForm()
+    email = form.email.data
+    password = form.password.data
+
+    logged_user = user.query.filter(User.email == email).first()
+    if logged_user and check_password_hash(logged_user.password, password):
+        login_user(logged_user)
+        return redirect(url_for('get_key'))
+    return render_template('login.html', form = form)
