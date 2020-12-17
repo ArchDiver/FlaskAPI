@@ -1,3 +1,4 @@
+#   #route for creating Patients
 @app.route('/paternts/create', methods = ['POST'])
 def create_patient():
     name = request.json['full_name']
@@ -11,6 +12,7 @@ def create_patient():
     results = patient_schema.dump(patient)
     return jsonify(results)
 
+#   #route for Retreiving Patient data
 @app.route('/patients', methods = ['GET'])
 def get_patients():
     patients = Patients.query.all()
