@@ -19,4 +19,6 @@ def seedData():
         data['ssn'],\
         data['mail'])
     db.session.add(patient)
-    
+    db.session.commit()
+seedData()
+
