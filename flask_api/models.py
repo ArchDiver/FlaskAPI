@@ -42,7 +42,7 @@ def load_user(user_id):
 
 class User(db.Model, UserMixin):
     id = db.Column(db.String(200), primary_key = True)
-    name = db.Column(db.String(100)), nullable = False)
+    name = db.Column(db.String(100), nullable = False)
     email = db.Column(db.String(100))
     password = db.Column(db.String(256), nullable = False)
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)

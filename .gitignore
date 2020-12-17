@@ -3,3 +3,5 @@ flask_api_env
 .env
 __pycache__
 migrations
+FLASK_API2_env
+FLASK_API2

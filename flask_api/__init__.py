@@ -2,7 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import Config
-from flask_marshmellow import Marshmellow
+from flask_marshmallow import Marshmallow
 
 from flask_login import LoginManager
 
@@ -11,7 +11,7 @@ app.config.from_object(Config)
 
 db = SQLAlchemy(app)
 mirgrate = Migrate(app, db)
-ma = Marshmellow(app)
+ma = Marshmallow(app)
 
 login_manager = LoginManager(app)
 
