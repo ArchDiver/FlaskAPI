@@ -17,4 +17,6 @@ def seedData():
         data['sex'],\
         data['address'],\
         data['ssn'],\
-            data['mail'])
+        data['mail'])
+    db.session.add(patient)
+    
