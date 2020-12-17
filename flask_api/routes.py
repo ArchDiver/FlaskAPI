@@ -1,3 +1,5 @@
+
+
 #   #route for creating Patients
 @app.route('/paternts/create', methods = ['POST'])
 def create_patient():
@@ -12,19 +14,28 @@ def create_patient():
     results = patient_schema.dump(patient)
     return jsonify(results)
 
-#   #route for Retreiving Patient data
+#   #route for Retreiving ALL Patients data
 @app.route('/patients', methods = ['GET'])
 def get_patients():
     patients = Patients.query.all()
     return jsonify(patients_schema.dumps(patients))
 
 
+"""
+route for retieving a SINGLE patient's data
+expects = ID
+"""
 @app.route(('/patients/<id>', methods = ['GET']))
 def get_patients():
     patient = Patient.query.get(id)
     results = patient_schema.dumps(patient)
     return jsonify(results)
 
+
+"""
+route for UPDATING patient data based on ID
+expects = ID
+"""
 @app.route('/patients.<id>', methods = ['POST', 'PUT'])
 def update_patients():
     pattient = Patient.query.get(id)
@@ -40,6 +51,10 @@ def update_patients():
 
     reutrn patient_schema.jsonify(patient)
 
+"""
+route for deleting a SINGLE patient data
+expects = ID
+"""
 @app.route('/patients/delete/<id>', methods = ['DELETE'])
 def delete_patients(id):
     patient = Patient.query.get(int(id))
