@@ -3,3 +3,4 @@ FLASK_API2_env/
 .env
 __pycache__
 migrations
+    
