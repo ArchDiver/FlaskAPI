@@ -11,6 +11,10 @@ import jwt
 from flask_api.forms import UserForm, LoginForm
 from token_validation import token_required
 
+@app.route('/')
+def home():
+    return render_template('home.html')
+    
 #   #route for creating Patients
 @app.route('/paternts/create', methods = ['POST'])
 @token_required
@@ -78,9 +82,6 @@ def delete_patients(current_user_token, id):
     result = patient_schema.dumps(patient)
     return jsonify(result)
 
-@app.route('/')
-def home():
-    return render_template('home.html')
 
 
 #   # route to the REGISTER page
