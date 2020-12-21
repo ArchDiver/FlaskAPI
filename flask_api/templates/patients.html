@@ -1,13 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <label for="firstname">First Name</label>
-        <input type="firstname" id="firstname">
+
+    <form>
+        <label for="firstname">First Name</label>
+            <input type="firstname" id="firstname">
+        <label for="firstname">First Name</label>
+            <input type="firstname" id="firstname"><br>
+        <label for="birthday">Birthday:</label>
+            <input type="date" id="birthday" name="birthday"><br>
+
+        <input type="submit">
+        <input type="reset">
+    </form>
 
 
 
-    <input type="submit">
-    <input type="reset">
 
 
 {% endblock content %}
