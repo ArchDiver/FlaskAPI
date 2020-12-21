@@ -4,6 +4,8 @@ from flask_migrate import Migrate
 from config import Config
 from flask_marshmallow import Marshmallow
 
+from flask_api import models, routes
+
 from flask_login import LoginManager
 
 app = Flask(__name__)
@@ -15,4 +17,3 @@ ma = Marshmallow(app)
 
 login_manager = LoginManager(app)
 
-from flask_api import models, routes
