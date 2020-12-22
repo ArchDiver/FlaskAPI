@@ -118,9 +118,8 @@ def login():
 @app.route('/users/logout')
 def logout():
     if "user" in session:
-        user = session["user"]
-    session.pop("user", None)
-    flash("You have been logged out.", "info")
+        session.pop("user", None)
+        flash("You have been logged out.", "info")
 
 @app.route('/getkey', methods = ['GET'])
 def get_key():
