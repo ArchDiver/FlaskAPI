@@ -110,7 +110,9 @@ def login():
     logged_user = User.query.filter(User.email == email).first()
     if logged_user and check_password_hash(logged_user.password, password):
         login_user(logged_user)
+        flash(f"You are now logged in as {logged_user}.")
         return redirect(url_for('get_key'))
+    flash(f"Not a valid user or password. Please try again or register")
     return render_template('login.html', form = form)
 
 @app.route('/users/logout')
