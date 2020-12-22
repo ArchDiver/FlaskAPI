@@ -1,6 +1,6 @@
 from flask_api import app, db
 from flask_api.models import Patient, patient_schema, patients_schema, User, check_password_hash
-from flask import jsonify, request, render_template, redirect, url_for
+from flask import jsonify, request, render_template, redirect, url_for, flash
 
 # Import for Flask Login
 from flask_login import login_required, login_user, current_user,logout_user
@@ -95,6 +95,7 @@ def register():
         user = User(name, email, password)
         db.session.add(user)
         db.session.commit(user)
+        flash("You have been registered. You will use your email and password to login.", "info")
 
         return redirect(url_for('login'))
     return render_template('register.html', form = form)
