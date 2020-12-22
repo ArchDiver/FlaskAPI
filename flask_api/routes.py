@@ -9,12 +9,12 @@ from flask_login import login_required, login_user, current_user,logout_user
 import jwt
 
 from flask_api.forms import UserForm, LoginForm
-from token_validation import token_required
+from .token_validation import token_required
 
 @app.route('/')
 def home():
     return render_template('home.html')
-    
+
 #   #route for creating Patients
 @app.route('/paternts/create', methods = ['POST'])
 @token_required
@@ -44,7 +44,7 @@ expects = ID
 """
 @app.route('/patients/<id>', methods = ['GET'])
 @token_required
-def get_patients(current_user_token, id):
+def get_patient(current_user_token, id):
     patient = Patient.query.get(current_user_token, id)
     results = patient_schema.dumps(patient)
     return jsonify(results)
@@ -97,7 +97,7 @@ def register():
         db.session.commit(user)
 
         return redirect(url_for('login'))
-    return render_template('request.html', form = form)
+    return render_template('register.html', form = form)
 
 #   # route to the LOGIN page
 @app.route('/users/login', methods = ['GET', 'POST'])

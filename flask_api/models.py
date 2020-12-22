@@ -54,7 +54,7 @@ def __init__(self, name, email, password, id = id):
     self.id = str(uuid.uuid4())
     self.name = name
     self.email = email
-    self.password = seld.set_password(password)
+    self.password = self.set_password(password)
 
 def set_password(self, password):
     self.pw_hash = generate_password_hash(password)
