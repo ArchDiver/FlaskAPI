@@ -1,0 +1,11 @@
+This is a Flask Based API
+
+-This will be a Patient Portal connected to a db
+-Has login feature connected to a db
+Features:
+    Register new Users
+    login/out
+    things that will be behind the auth:
+        Patient record creation
+        Patient lookup
+        Patient record modification
