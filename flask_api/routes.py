@@ -1,6 +1,6 @@
 from flask_api import app, db
 from flask_api.models import Patient, patient_schema, patients_schema, User, check_password_hash
-from flask import jsonify, request, render_template, redirect, url_for, flash, session
+from flask import jsonify, request, render_template, redirect, url_for, flash, session, Blueprint
 
 # Import for Flask Login
 from flask_login import login_required, login_user, current_user,logout_user
@@ -10,6 +10,8 @@ import jwt
 
 from flask_api.forms import UserForm, LoginForm
 from .token_validation import token_required
+
+bp = Blueprint('routes', __name__)
 
 @app.route('/')
 def home():
