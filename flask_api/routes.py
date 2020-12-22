@@ -112,6 +112,10 @@ def login():
         return redirect(url_for('get_key'))
     return render_template('login.html', form = form)
 
+@app.route('/users/logout')
+def logout():
+    if "user" in session:
+
 @app.route('/getkey', methods = ['GET'])
 def get_key():
     token = jwt.encode({'public_id':current_user.id, 'email':current_user.email}, app.config['SECRET_KEY'])
