@@ -1,6 +1,6 @@
 from flask_api import app, db
 from flask_api.models import Patient, patient_schema, patients_schema, User, check_password_hash
-from flask import jsonify, request, render_template, redirect, url_for, flash
+from flask import jsonify, request, render_template, redirect, url_for, flash, session
 
 # Import for Flask Login
 from flask_login import login_required, login_user, current_user,logout_user
@@ -16,7 +16,7 @@ def home():
     return render_template('home.html')
 
 #   #route for creating Patients
-@app.route('/paternts/create', methods = ['POST'])
+@app.route('/patients/create', methods = ['POST'])
 @token_required
 def create_patient(current_user_token):
     name = request.json['full_name']
@@ -28,13 +28,14 @@ def create_patient(current_user_token):
 
     patient = Patient(name, gender, address, ssn, blood_type, email)
     results = patient_schema.dump(patient)
+    flash(f"Record for {patient} has been added.", "info")
     return jsonify(results)
 
 #   #route for Retreiving ALL Patients data
 @app.route('/patients', methods = ['GET'])
 @token_required
 def get_patients(current_user_token):
-    patients = Patients.query.all(current_user_token)
+    patients = Patient.query.all(current_user_token)
     return jsonify(patients_schema.dumps(patients))
 
 
