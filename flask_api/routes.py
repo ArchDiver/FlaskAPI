@@ -98,7 +98,7 @@ def register():
         db.session.commit(user)
         flash("You have been registered. You will use your email and password to login.", "info")
 
-        return redirect(url_for('login'))
+        return redirect(url_for('home'))
     return render_template('register.html', form = form)
 
 #   # route to the LOGIN page
