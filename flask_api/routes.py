@@ -18,8 +18,10 @@ def home():
     return render_template('home.html')
 
 
-
+##################################################
 ##################  Patient Records ##############
+##################################################
+
 #   #route for creating Patients
 @app.route('/patients/create', methods = ['POST'])
 @token_required
@@ -90,8 +92,10 @@ def delete_patients(current_user_token, id):
 
 
 
+##################################################
+################### Users ########################
+##################################################
 
-###################
 #   # route to the REGISTER page
 @app.route('/users/register', methods = ['GET', 'POST'])
 def register():
