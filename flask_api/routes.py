@@ -143,9 +143,9 @@ def get_key():
     results = token.decode('utf-8')
     return render_template('token.html', results = results)
 
-# @app.route('/updatekey', methods = ['GET','POST','PUT'])
-# def refresh_key():
-#     refresh_key = {'refreshToken': jwt.encode({'public_id':current_user.id, 'email':current_user.email}, app.config['SECRET_KEY'])}
-#     temp = refresh_key.get('refreshToken')
-#     actual_token = temp.decode('utf-8')
-#     return render_template('token_refresh.html', actual_token = actual_token)
+@app.route('/updatekey', methods = ['GET','POST','PUT'])
+def refresh_key():
+    refresh_key = {'refreshToken': jwt.encode({'public_id':current_user.id, 'email':current_user.email}, app.config['SECRET_KEY'])}
+    temp = refresh_key.get('refreshToken')
+    actual_token = temp.decode('utf-8')
+    return render_template('token_refresh.html', actual_token = actual_token)
