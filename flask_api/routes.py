@@ -33,10 +33,10 @@ def create_patient(current_user_token):
     blood_type = request.json['blood_type']
     email = request.json['email']
 
-    # patient = Patient(name, gender, address, ssn, blood_type, email)
-    # results = patient_schema.dump(patient)
-    # flash(f"Record for {patient} has been added.", "info")
-    # return jsonify(results)
+    patient = Patient(name, gender, address, ssn, blood_type, email)
+    results = patient_schema.dump(patient)
+    flash(f"Record for {patient} has been added.", "info")
+    return jsonify(results)
 
 #   #route for Retreiving ALL Patients data
 @app.route('/patients', methods = ['GET'])
