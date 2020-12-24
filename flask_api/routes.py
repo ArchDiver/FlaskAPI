@@ -50,12 +50,12 @@ def get_patients(current_user_token):
 route for retieving a SINGLE patient's data
 expects = ID
 """
-# @app.route('/patients/<id>', methods = ['GET'])
-# @token_required
-# def get_patient(current_user_token, id):
-#     patient = Patient.query.get(current_user_token, id)
-#     results = patient_schema.dumps(patient)
-#     return jsonify(results)
+@app.route('/patients/<id>', methods = ['GET'])
+@token_required
+def get_patient(current_user_token, id):
+    patient = Patient.query.get(current_user_token, id)
+    results = patient_schema.dumps(patient)
+    return jsonify(results)
 
 
 """
