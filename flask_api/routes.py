@@ -64,16 +64,16 @@ expects = ID
 """
 @app.route('/patients.<id>', methods = ['POST', 'PUT'])
 @token_required
-def update_patients(current_user_token, id):
-    patient = Patient.query.get(current_user_token, id)
-    patient.name = request.json['full_name']
-    patient.gender = request.json['gender']
-    patient.address = request.json['address']
-    patient.ssn = request.json['ssn']
-    patient.blood_type = request.json['blood_type']
-    patient.email = request.json['email']
+# def update_patients(current_user_token, id):
+#     patient = Patient.query.get(current_user_token, id)
+#     patient.name = request.json['full_name']
+#     patient.gender = request.json['gender']
+#     patient.address = request.json['address']
+#     patient.ssn = request.json['ssn']
+#     patient.blood_type = request.json['blood_type']
+#     patient.email = request.json['email']
 
-    db.session.commit()
+#     db.session.commit()
 
     return patient_schema.jsonify(patient)
 
