@@ -96,35 +96,35 @@ def delete_patients(current_user_token, id):
 ################### Users ########################
 ##################################################
 
-# #   # route to the REGISTER page
-# @app.route('/users/register', methods = ['GET', 'POST'])
-# def register():
-#     form = UserForm()
-#     if request.method == 'POST' and form.validate():
-#         name = form.name.data
-#         email = form.email.data
-#         password = form.password.data
-#         user = User(name, email, password)
-#         db.session.add(user)
-#         db.session.commit(user)
-#         flash("You have been registered. You will use your email and password to login.", "info")
+#   # route to the REGISTER page
+@app.route('/users/register', methods = ['GET', 'POST'])
+def register():
+    form = UserForm()
+    if request.method == 'POST' and form.validate():
+        name = form.name.data
+        email = form.email.data
+        password = form.password.data
+        user = User(name, email, password)
+        db.session.add(user)
+        db.session.commit(user)
+        flash("You have been registered. You will use your email and password to login.", "info")
 
         return redirect(url_for('home'))
     return render_template('register.html', form = form)
 
-#   # route to the LOGIN page
-@app.route('/users/login', methods = ['GET', 'POST'])
-def login():
-    form = LoginForm()
-    email = form.email.data
-    password = form.password.data
-    logged_user = User.query.filter(User.email == email).first()
-    if logged_user and check_password_hash(logged_user.password, password):
-        login_user(logged_user)
-        flash(f"You are now logged in as {logged_user}.")
-        return redirect(url_for('get_key'))
-    flash(f"Not a valid user or password. Please try again or register")
-    return render_template('login.html', form = form)
+# #   # route to the LOGIN page
+# @app.route('/users/login', methods = ['GET', 'POST'])
+# def login():
+#     form = LoginForm()
+#     email = form.email.data
+#     password = form.password.data
+#     logged_user = User.query.filter(User.email == email).first()
+#     if logged_user and check_password_hash(logged_user.password, password):
+#         login_user(logged_user)
+#         flash(f"You are now logged in as {logged_user}.")
+#         return redirect(url_for('get_key'))
+#     flash(f"Not a valid user or password. Please try again or register")
+#     return render_template('login.html', form = form)
 
 @app.route('/users/logout')
 def logout():
