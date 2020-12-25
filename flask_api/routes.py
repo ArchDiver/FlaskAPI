@@ -81,14 +81,14 @@ def update_patients(current_user_token, id):
 route for deleting a SINGLE patient data
 expects = ID
 """
-@app.route('/patients/delete/<id>', methods = ['DELETE'])
-@token_required
-def delete_patients(current_user_token, id):
-    patient = Patient.query.get(int(id))
-    db.session.delete(patient)
-    db.session.commit()
-    result = patient_schema.dumps(patient)
-    return jsonify(result)
+# @app.route('/patients/delete/<id>', methods = ['DELETE'])
+# @token_required
+# def delete_patients(current_user_token, id):
+#     patient = Patient.query.get(int(id))
+#     db.session.delete(patient)
+#     db.session.commit()
+#     result = patient_schema.dumps(patient)
+#     return jsonify(result)
 
 
 
