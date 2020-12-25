@@ -1,9 +1,9 @@
 from flask_api import app, db
-# from flask_api.models import Patient, patient_schema, patients_schema, User, check_password_hash
-# from flask import jsonify, request, render_template, redirect, url_for, flash, session, Blueprint
+from flask_api.models import Patient, patient_schema, patients_schema, User, check_password_hash
+from flask import jsonify, request, render_template, redirect, url_for, flash, session, Blueprint
 
-# # Import for Flask Login
-# from flask_login import login_required, login_user, current_user,logout_user
+# Import for Flask Login
+from flask_login import login_required, login_user, current_user,logout_user
 
 # Import for PyJWT (Json Web Token)
 import jwt
