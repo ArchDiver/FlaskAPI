@@ -129,13 +129,13 @@ def login():
 @app.route('/users/logout')
 def logout():
     if "user" in session:
-#         session.pop("user", None)
-#         flash("You have been logged out.", "info")
+        session.pop("user", None)
+        flash("You have been logged out.", "info")
 
-# @app.route('/getkey', methods = ['GET'])
-# def get_key():
-#     token = jwt.encode({'public_id':current_user.id, 'email':current_user.email}, app.config['SECRET_KEY'])
-#     user = User.query.filter_by(email = current_user.email).first(token)
+@app.route('/getkey', methods = ['GET'])
+def get_key():
+    token = jwt.encode({'public_id':current_user.id, 'email':current_user.email}, app.config['SECRET_KEY'])
+    user = User.query.filter_by(email = current_user.email).first(token)
     user.token = token
 
     db.session.add(user)
