@@ -138,10 +138,10 @@ def get_key():
     user = User.query.filter_by(email = current_user.email).first(token)
     user.token = token
 
-    # db.session.add(user)
-    # db.session.commit()
-    # results = token.decode('utf-8')
-    # return render_template('token.html', results = results)
+    db.session.add(user)
+    db.session.commit()
+    results = token.decode('utf-8')
+    return render_template('token.html', results = results)
 
 @app.route('/updatekey', methods = ['GET','POST','PUT'])
 def refresh_key():
