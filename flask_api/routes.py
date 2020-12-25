@@ -5,13 +5,13 @@ from flask import jsonify, request, render_template, redirect, url_for, flash, s
 # Import for Flask Login
 from flask_login import login_required, login_user, current_user,logout_user
 
-# Import for PyJWT (Json Web Token)
-import jwt
+# # Import for PyJWT (Json Web Token)
+# import jwt
 
-from flask_api.forms import UserForm, LoginForm
-from .token_validation import token_required
+# from flask_api.forms import UserForm, LoginForm
+# from .token_validation import token_required
 
-bp = Blueprint('routes', __name__)
+# bp = Blueprint('routes', __name__)
 
 @app.route('/')
 def home():
