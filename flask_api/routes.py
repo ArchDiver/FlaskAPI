@@ -38,12 +38,12 @@ def create_patient(current_user_token):
     flash(f"Record for {patient} has been added.", "info")
     return jsonify(results)
 
-# #   #route for Retreiving ALL Patients data
-# @app.route('/patients', methods = ['GET'])
-# @token_required
-# def get_patients(current_user_token):
-#     patients = Patient.query.all(current_user_token)
-#     return jsonify(patients_schema.dumps(patients))
+#   #route for Retreiving ALL Patients data
+@app.route('/patients', methods = ['GET'])
+@token_required
+def get_patients(current_user_token):
+    patients = Patient.query.all(current_user_token)
+    return jsonify(patients_schema.dumps(patients))
 
 
 """
