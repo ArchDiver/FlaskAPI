@@ -73,14 +73,14 @@ def update_patients(current_user_token, id):
     patient.blood_type = request.json['blood_type']
     patient.email = request.json['email']
 
-    db.session.commit()
+#     db.session.commit()
 
-    return patient_schema.jsonify(patient)
+#     return patient_schema.jsonify(patient)
 
-"""
-route for deleting a SINGLE patient data
-expects = ID
-"""
+# """
+# route for deleting a SINGLE patient data
+# expects = ID
+# """
 @app.route('/patients/delete/<id>', methods = ['DELETE'])
 @token_required
 def delete_patients(current_user_token, id):
