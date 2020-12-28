@@ -26,8 +26,8 @@ class Patient(db.Model):
         self.blood_type = blood_type
         self.email = email
     
-    # def __repr__(self):
-    #     return f'Parient {self.full_name} had been added to the database.'
+    def __repr__(self):
+        return f'Parient {self.full_name} had been added to the database.'
 
 class PatientShcema(ma.Schema):
     class Meta:
