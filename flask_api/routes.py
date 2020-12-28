@@ -126,11 +126,11 @@ def login():
     flash(f"Not a valid user or password. Please try again or register")
     return render_template('login.html', form = form)
 
-# @app.route('/users/logout')
-# def logout():
-#     if "user" in session:
-#         session.pop("user", None)
-#         flash("You have been logged out.", "info")
+@app.route('/users/logout')
+def logout():
+    if "user" in session:
+        session.pop("user", None)
+        flash("You have been logged out.", "info")
 
 @app.route('/getkey', methods = ['GET'])
 def get_key():
