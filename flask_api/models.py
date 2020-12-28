@@ -29,12 +29,12 @@ class Patient(db.Model):
     # def __repr__(self):
     #     return f'Parient {self.full_name} had been added to the database.'
 
-class PatientShcema(ma.Schema):
-    class Meta:
-        # Fields to show in the output
-        fields = ["full_name", "gender", "address", "ssn", "blood_type", "email"]
-patient_schema = PatientShcema()
-patients_schema = PatientShcema(many = True)
+# class PatientShcema(ma.Schema):
+#     class Meta:
+#         # Fields to show in the output
+#         fields = ["full_name", "gender", "address", "ssn", "blood_type", "email"]
+# patient_schema = PatientShcema()
+# patients_schema = PatientShcema(many = True)
 
 @login_manager.user_loader
 def load_user(user_id):
