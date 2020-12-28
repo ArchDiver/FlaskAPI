@@ -60,5 +60,5 @@ def set_password(self, password):
     self.pw_hash = generate_password_hash(password)
     return self.pw_hash
 
-def __repr__(self):
-    return F' {self.name} has been created successfully.'
+# def __repr__(self):
+#     return F' {self.name} has been created successfully.'
