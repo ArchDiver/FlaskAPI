@@ -18,13 +18,13 @@ class Patient(db.Model):
     blood_type = db.Column(db.String, nullable = False)
     email = db.Column(db.String, nullable = False)
 
-    # def __init__(self,full_name, gender, address, ssn, blood_type, email, id = id):
-    #     self.full_name = full_name
-    #     self.gender = gender
-    #     self.address = address
-    #     self.ssn = ssn
-    #     self.blood_type = blood_type
-    #     self.email = email
+    def __init__(self,full_name, gender, address, ssn, blood_type, email, id = id):
+        self.full_name = full_name
+        self.gender = gender
+        self.address = address
+        self.ssn = ssn
+        self.blood_type = blood_type
+        self.email = email
     
     def __repr__(self):
         return f'Parient {self.full_name} had been added to the database.'
