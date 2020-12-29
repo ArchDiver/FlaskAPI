@@ -34,7 +34,7 @@ def create_patient(current_user_token):
     blood_type = request.json['blood_type']
     email = request.json['email']
 
-    patient = Patient(name, gender, address, ssn, blood_type, email)
+    patient = Patient(firstName, lastName, gender, address, ssn, blood_type, email)
     results = patient_schema.dump(patient)
     flash(f"Record for {patient} has been added.", "info")
     return jsonify(results)
