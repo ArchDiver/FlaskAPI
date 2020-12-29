@@ -36,9 +36,9 @@ class PatientShcema(ma.Schema):
 patient_schema = PatientShcema()
 patients_schema = PatientShcema(many = True)
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(user_id)
+# @login_manager.user_loader
+# def load_user(user_id):
+#     return User.query.get(user_id)
 
 class User(db.Model, UserMixin):
     id = db.Column(db.String(200), primary_key = True)
