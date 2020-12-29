@@ -26,7 +26,8 @@ def home():
 @app.route('/patients/create', methods = ['POST'])
 @token_required
 def create_patient(current_user_token):
-    firstName = request.json['full_name']
+    firstName = request.json['first_name']
+    lastName = request.json['last_name']
     gender = request.json['gender']
     address = request.json['address']
     ssn = request.json['ssn']
