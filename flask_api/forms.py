@@ -6,7 +6,7 @@ class UserForm(FlaskForm):
     name = StringField('Name', validators = [DataRequired()])
     email = StringField('Email', validators = [DataRequired(), Email()])
     password = PasswordField('Password', validators = [DataRequired()])
-    confirm_password = PasswordField('Confirm Password', validators = [DataRequired(), EqualTo('Password')])
+    confirm_password = PasswordField('Confirm Password', validators = [DataRequired(), EqualTo('Password', message="Passwords must match")])
     submit = SubmitField()
 
 class LoginForm(FlaskForm):
