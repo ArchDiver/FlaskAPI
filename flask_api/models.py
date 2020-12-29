@@ -40,15 +40,15 @@ patients_schema = PatientShcema(many = True)
 def load_user(user_id):
     return User.query.get(user_id)
 
-# class User(db.Model, UserMixin):
-#     id = db.Column(db.String(200), primary_key = True)
-#     name = db.Column(db.String(100), nullable = False)
-#     email = db.Column(db.String(100))
-#     password = db.Column(db.String(256), nullable = False)
-#     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
-#     token = db.Column(db.String(400), default = "No Token Created")
-#     token_refreashed = db.Column(db.Boolean, default = False)
-#     date_refreashed = db.Column(db.DateTime)
+class User(db.Model, UserMixin):
+    id = db.Column(db.String(200), primary_key = True)
+    name = db.Column(db.String(100), nullable = False)
+    email = db.Column(db.String(100))
+    password = db.Column(db.String(256), nullable = False)
+    date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
+    token = db.Column(db.String(400), default = "No Token Created")
+    token_refreashed = db.Column(db.Boolean, default = False)
+    date_refreashed = db.Column(db.DateTime)
 
 def __init__(self, name, email, password, id = id):
     self.id = str(uuid.uuid4())
