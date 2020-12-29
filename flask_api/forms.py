@@ -15,4 +15,10 @@ class LoginForm(FlaskForm):
     submit = SubmitField()
 
 class PatientForm(FlaskForm):
-    
+    firstName = request.json['first_name']
+    lastName = request.json['last_name']
+    gender = request.json['gender']
+    address = request.json['address']
+    ssn = request.json['ssn']
+    blood_type = request.json['blood_type']
+    email = request.json['email']

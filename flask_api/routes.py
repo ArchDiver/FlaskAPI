@@ -105,7 +105,7 @@ def register():
         name = form.name.data
         email = form.email.data
         password = form.password.data
-        user = User(name, email, password)
+        user = User(fullName, email, password)
         db.session.add(user)
         db.session.commit(user)
         flash("You have been registered. You will use your email and password to login.", "info")
