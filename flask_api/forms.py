@@ -15,11 +15,11 @@ class LoginForm(FlaskForm):
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
-class PatientForm(FlaskForm):
-    firstName = request.json['first_name']
-    lastName = request.json['last_name']
-    gender = request.json['gender']
-    address = request.json['address']
-    ssn = request.json['ssn']
-    blood_type = request.json['blood_type']
-    email = request.json['email']
+# class PatientForm(FlaskForm):
+#     firstName = request.json['first_name']
+#     lastName = request.json['last_name']
+#     gender = request.json['gender']
+#     address = request.json['address']
+#     ssn = request.json['ssn']
+#     blood_type = request.json['blood_type']
+#     email = request.json['email']
