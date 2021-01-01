@@ -102,7 +102,7 @@ def delete_patients(current_user_token, id):
 def register():
     form = UserForm()
     if request.method == 'POST' and form.validate():
-        name = form.name.data
+        fullName = form.name.data
         email = form.email.data
         password = form.password.data
         user = User(fullName, email, password)
