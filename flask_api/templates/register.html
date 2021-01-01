@@ -3,7 +3,7 @@
 {% block content %}
     <div>
         <h1>Register for an Account</h1>
-        <form action="">
+        <!-- <form action="">
             <label for="firstname">First Name</label>
                 <input type="text" id="name"><br>
             <label for="familyname">Family Name</label>
@@ -16,17 +16,17 @@
                 <input type="password" id="password2" minlength="8" size="15"><br>
             <input type="submit" value="Submit">
             <input type="reset" value="Reset">
-        </form>        
+        </form>         -->
 
 
 
         <!-- Signup form which comes from the flask route -->
-        <!-- <form action="" method="POST">
+        <form action="" method="POST">
             {{ form.hidden_tag() }}
             <div class="form-group">
                 <fieldset>
-                    {{ form.username.label }}
-                    {{ form.username(class="form-control", placeholder='Username') }}
+                    {{ form.name.label }}
+                    {{ form.name(class="form-control", placeholder='name') }}
                 </fieldset>
                 <fieldset>
                     {{ form.email.label }}
@@ -37,13 +37,13 @@
                     {{ form.password(class='form-control', placeholder='Password') }}
                 </fieldset>
                 <fieldset>
-                    {{ form.confirm_pass.label }}
-                    {{ form.confirm_pass(class='form-control', placeholder='Confirm Password') }}
+                    {{ form.confirm_password.label }}
+                    {{ form.confirm_password(class='form-control', placeholder='Confirm Password') }}
                 </fieldset>
                 {{ form.submit(class='btn btn-success') }}
 
             </div>
-        </form>       -->
+        </form>      
     </div>
 
 {% endblock content %}

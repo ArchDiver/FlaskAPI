@@ -3,7 +3,7 @@ from flask_api.models import Patient, patient_schema, patients_schema, User, che
 from flask import jsonify, request, render_template, redirect, url_for, flash, session, Blueprint
 
 # Import for Flask Login
-from flask_login import login_required, login_user, current_user,logout_user
+from flask_login import login_required, login_user, current_user, logout_user
 
 # Import for PyJWT (Json Web Token)
 import jwt
@@ -102,10 +102,10 @@ def delete_patients(current_user_token, id):
 def register():
     form = UserForm()
     if request.method == 'POST' and form.validate():
-        fullName = form.name.data
+        name = form.name.data
         email = form.email.data
         password = form.password.data
-        user = User(fullName, email, password)
+        user = User(name, email, password)
         db.session.add(user)
         db.session.commit(user)
         flash("You have been registered. You will use your email and password to login.", "info")
